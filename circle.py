@@ -21,6 +21,10 @@ class Circle(object):
 	def __init__(self,radius):
 
 		self.radius = int(radius)
+
+	def get_radius(self):
+
+		return self.radius
         
 	def get_area(self):
 
@@ -32,15 +36,25 @@ class Circle(object):
 		perimeter = 2 * Circle.pi * self.radius
 		return perimeter
 
+#class inheritance
+class Diameter(Circle):
+
+	def __init__(self,radius):
+		Circle.__init__(self,radius)
+
+	def get_diameter(self):
+		return 2 * self.get_radius()
+
 
 
 ## Object initialization
 
 c = Circle(radius = input_radius)
+d = Diameter(radius = input_radius)
 
 print('Area of the circle: {X}'.format(X=c.get_area()))
 print('Perimeter of the circle: {Y}'.format(Y=c.get_perimeter()))
-
+print('Diameter: {Z}'.format(Z=d.get_diameter()))
 
 
 
